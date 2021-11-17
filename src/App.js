@@ -1,10 +1,20 @@
+import { useState } from "react";
 import "./styles.css";
+import LargeText from "./components/LargerText";
 
-export default function App() {
+const App = () => {
+  const [counter, setCounter] = useState(0);
+  const buttonText = "Click me";
+  const onClickHandler = () => {
+    console.log(counter);
+    setCounter(counter + 1);
+  };
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <button onClick={onClickHandler}>{buttonText}</button>
+      <LargeText text={`Button was clicked ${counter} times`} />
     </div>
   );
-}
+};
+
+export default App;
